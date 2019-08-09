@@ -1,0 +1,68 @@
+%----------------------------
+% B A C H E L O R A R B E I T
+%----------------------------
+
+
+
+% DOKUMENTEINSTELLUNGEN
+% ---------------------
+
+% Enkodierung
+	\usepackage[utf8]{inputenc} %Linux
+	%\usepackage[latin1]{inputenc} %Windows
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+% verwendete Sprachen
+	\usepackage[ngerman,english]{babel}
+	
+	
+% ZUSÄTZLICHE PAKETE LADEN
+% ------------------------
+
+% Mathematik Pakete
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	\usepackage{fixmath}
+
+
+% BENUTZERDEFINIERTES AUSSEHEN
+% ----------------------------
+
+% Zeilen und Absatzabstand
+	%\onehalfspacing
+	\linespread{1.1}
+	% einfacher Zeilenabstand in Fußnoten
+	\let\footnoteOld\footnote
+	\renewcommand{\footnote}[1]{\linespread{0.95}\footnoteOld{#1}}
+	%\setlength{\parskip}{5pt}
+
+
+% BENUTZERDEFINIERTE BEFEHLE
+% --------------------------
+
+% Mathematische Zeichen aufrecht setzen
+	\newcommand{\dd}{\mathrm{d}} % Differential
+	\newcommand{\ee}{\mathrm{e}} % Eulersche Zahl
+	\newcommand{\ii}{\mathrm{i}} % imaginäre Einheit
+% Physikalische Einheiten aufrecht setzen
+	%\newcommand{\unit}[1]{\mathrm{#1}}
+% Mehrzeilige Kommentare unter Klammern
+	%\newcommand{\mlunderbrace}[3]{\underbrace{#2}_{\parbox{#1}{\begin{scriptsize} #3 \end{scriptsize}}}}
+% Betragsstriche
+	\providecommand{\abs}[1]{\left|#1\right|}
+% Norm (doppelte Betragsstriche)
+	%\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+% "Setze" Symbol (= mit ! drüber)
+	\newcommand{\set}{\stackrel{!}{=}}
+% "Zu Zeigen" Symbol (ineinanderhängende ZZ)
+	%\newcommand{\ZZ}{\mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}}}
+% Operatoren
+	\newcommand{\Var}{\mathrm{Var}}
+% Vektorielle Differentialoperatoren
+	%\newcommand{\vnabla}{\vec{\nabla}}
+	%\newcommand{\laplace}{\Delta}
+	%\newcommand{\dalembert}{\square}
+% Hilbertraumvektoren
+	%\newcommand{\bra}[1]{\left \langle #1 \right |}
+	%\newcommand{\ket}[1]{\left | #1 \right \rangle}

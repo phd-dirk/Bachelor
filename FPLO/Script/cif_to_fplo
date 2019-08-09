@@ -1,0 +1,90 @@
+#! /usr/bin/python
+
+import os
+import sys
+import re
+import numpy as np
+from ase.io.cif import *
+from ase.lattice.spacegroup.spacegroup import Spacegroup
+
+cif_file = open(sys.argv[1])
+
+
+blocks = parse_cif(cif_file)
+
+for name, tags in blocks:
+    a = tags['_cell_length_a']
+    b = tags['_cell_length_b']
+    c = tags['_cell_length_c']
+    alpha = tags['_cell_angle_alpha']
+    beta = tags['_cell_angle_beta']
+    gamma = tags['_cell_angle_gamma']
+
+    scaled_positions = np.array([tags['_atom_site_fract_x'], 
+                                 tags['_atom_site_fract_y'], 
+                                 tags['_atom_site_fract_z']]).T
+
+    symbols = []
+    if '_atom_site_type_symbol' in tags:
+        labels = tags['_atom_site_type_symbol']
+    else:
+        labels = tags['_atom_site_label']
+    for s in labels:
+        # Strip off additional labeling on chemical symbols
+        m = re.search(r'([A-Z][a-z]?)', s)  
+        symbol = m.group(0)
+        symbols.append(symbol)
+
+    no = None
+    if '_space_group.it_number' in tags:
+        no = tags['_space_group.it_number']
+    elif '_symmetry_int_tables_number' in tags:
+        no = tags['_symmetry_int_tables_number']
+
+    symbolHM = None
+    if '_space_group.Patterson_name_h-m' in tags:
+        symbolHM = tags['_space_group.patterson_name_h-m']
+    elif '_symmetry_space_group_name_h-m' in tags:
+        symbolHM = tags['_symmetry_space_group_name_h-m']
+
+    sitesym = None
+    if '_space_group_symop.operation_xyz' in tags:
+        sitesym = tags['_space_group_symop.operation_xyz']
+    elif '_symmetry_equiv_pos_as_xyz' in tags:
+        sitesym = tags['_symmetry_equiv_pos_as_xyz']
+        
+    spacegroup = 1
+    if sitesym is not None:
+        spacegroup = spacegroup_from_data(no=no, symbol=symbolHM,
+                                          sitesym=sitesym)
+    elif no is not None:
+        spacegroup = no
+    elif symbolHM is not None:
+        spacegroup = symbolHM
+    else:
+        spacegroup = 1
+    
+    sg_no = Spacegroup(spacegroup)._no
+
+pipe_string = ''
+    
+pipe_string += '@+@\n'
+pipe_string += '@s@\n@{0}@\n@x@\n'.format(sg_no)
+pipe_string += '@u@\n@a@\n@x@\n'
+pipe_string += '@l@ {0} {1} {2}\n'.format(a, b, c)
+pipe_string += '@a@ {0} {1} {2}\n'.format(alpha, beta, gamma)
+pipe_string += '@n@ {0}\n'.format(len(symbols))
+
+for i, (s, spos) in enumerate(zip(symbols, scaled_positions)):
+    pipe_string += '@{0}@ {1} @ {2} {3} {4}\n'.format(i+1, s, *spos)
+
+pipe_string += '@+@\n@x@\n@q@\n@y@\n'
+
+out = open('=.pipe', 'w')
+out.write(pipe_string)
+out.close()
+
+#fedit = os.environ['FEDIT'].format(fedit)
+
+os.system('cat ./=.pipe | fedit9.09-43-x86_64 -pipe 2> ./+log 1> /dev/null')
+

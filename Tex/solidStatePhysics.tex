@@ -1,0 +1,277 @@
+\chapter{Fundamental concepts in a solid state}
+	In this section we follow \cite{Festkoerperphysik_Ashcroft} and \cite{Festkoerperphysik_RG_AM}.\\\\
+	For describing a crystal and its properties some solid state physic theory is needed. We therefore want to introduce some fundamental basics, starting with lattice descriptions and ending with a better understanding of band structures and density of states.
+	\section{Crystal lattice}
+		Solid state physics basically addresses the description of crystal properties. A crystal is described in forms of a Bravais lattice (discussed below) and of an atomic basis attached at each lattice point.
+			
+		\subsection{Bravais lattice}
+			A \textit{Bravais} lattice defines the periodic basis of a crystal as a lattice. This basis can consist of atoms, ions, molecules et cetera. The d dimensional \textit{Bravais} lattice is given by 
+			\begin{align}
+				\label{eq:bravais}
+				\vec{R} = \sum_{i=1}^{d} n_i \vec{a_i} && n_i \in \mathbb{Z},
+			\end{align}
+			where $\vec{a_i}$ are arbitrary vectors with the condition that $\vec{a_i}$ and $\vec{a_j}$ ($i \neq j$) are linearly independent. With equation (\ref{eq:bravais}) we now can reach every unit in a solid by adjusting $n_i$. In most cases we will have a 3-dimensional lattice, i.e. with $d=3$.
+			
+		
+		\subsection{Primitive Cell}
+			\label{sec:primitiveCell}
+			Due to the periodicity of the crystal we can focus on the primitive cell, defined a volume in the position space that contains exactly one lattice point and fills the whole space when translated among the \textit{Bravais} vectors $a_i$. 
+			It is not unique, i.e. it can have different shapes. Besides the primitive cell one can also build a conventional cell, that can contain more than one lattice point and which is the smallest form of a \textit{unit cell} (volume formed by the arbitrary chosen basis vectors). 
+	
+		\subsection{Wigner-Seitz cell}
+			It is always possible to choose a primitive cell with full symmetry of the \textit{Bravais lattice}. The most common method of choosing such a cell is the \textit{Wigner-Seitz} construction. To construct the two dimensional \textit{Wigner-Seitz cell} one picks a lattice point and draws lines to all neighbor lattice points. For each line the perpendicular bisecting plane has to be constructed and the encased plane is the \textit{Wigner-Seitz cell}. The two dimensional construction is analogous to the three dimensional case.			
+			
+		\subsection{Reciprocal lattice}
+			\label{sec:reciprocalLattice}
+			Making use of periodicity one can also change into the \textit{reciprocal lattice}. Consider a plane wave $e^{i\vec{k \cdot r}}$ and the set of vectors $\vec{R}$, which form a \textit{Bravais lattice}. The set of all wave vectors $\vec{k}$, that generate plane waves with the periodicity of the \textit{Bravais lattice}, are called \textit{reciprocal lattice}.
+			\begin{equation}
+				\label{eq:reciprocalLattice}
+				e^{i\vec{k}(\vec{r + R})} = e^{i \vec{k \cdot r}}
+			\end{equation}
+			By dividing through $e^{i\vec{k \cdot r}}$ we obtain the following condition
+			\begin{equation}
+				e^{i\vec{k \cdot R}} = 1.
+			\end{equation}
+			Moreover the reciprocal lattice is a Bravais lattice spanned by
+			\begin{equation}
+				\vec{k_i} = 2 \pi \epsilon_{ijk} \frac{\vec{a_j \times a_k}}{|\vec{a_1 \cdot (a_2 \times a_3})|},
+			\end{equation}
+			where we used the \textit{Einstein notation} and the \textit{Levi-Cevita symbols}. \\
+			The above equation can also be transformed to the following condition :
+			\begin{equation}
+				\label{eq:reciprocalCondition}
+				\vec{a_i} \cdot \vec{b_j} = 2 \pi \delta_{ij}.
+			\end{equation}
+			The reciprocal lattice can now be written as 
+			\begin{align}
+				\label{eq:reciprocalLattice2}
+				\vec{k} = h\vec{b_1} + k\vec{b_2} + l\vec{b_3} && h,k,l \in \mathbb{Z},
+			\end{align}	
+			We will see that the integers h,k and l denote the \textit{Miller indices}. In addition, there exists a \textit{Wigner-Seitz cell} for the \textit{reciprocal lattice} called \textit{Brillouin zone}. 	
+			
+		\subsection{Brillouin zone}
+			For band structure calculations it is essential to use the \textit{Brillouin zone}. For periodical crystals the energy structure is periodic within every \textit{Brillouin zone}. Thus we only have to calculate properties in one \textit{Brillouin zone} and can transfer the result to the whole lattice.
+	
+	\section{Many body Hamiltonian}
+		To deal with modern many-body problems we have to use quantum mechanics, starting with the \textit{Schrödinger equation} for a certain Hamiltonian ,whose general form is given by the total kinetic energy and potential.
+		\begin{equation}
+			\label{eq:generalHamiltonian}
+			\hat H = \hat T + \hat V.
+		\end{equation}
+		In solids we only have to regard Coulomb repulsion between nuclei and electrons. As a consequence we have to handle three different types of interaction :\\
+		\begin{compactenum}[I]
+			\item Nucleus-nucleus interaction
+				\begin{equation}
+					V_{nn} = \sum_{I \neq J}^{N_n} \frac{e^2}{8 \pi \epsilon_0} \frac{Z_I \cdot Z_J}{|\vec{R_I - R_J}|},
+				\end{equation}
+				
+				
+			\item Nucleus-electron interaction
+				\begin{equation}
+					V_{ne} = \sum_{I}^{N_n} \sum_{i}^{N_e} \frac{e^2}{4 \pi \epsilon_0} \frac{Z_I}{|\vec{R_I - r_i}|},
+				\end{equation}
+				
+			\item Electron-electron interaction
+				\begin{equation}
+					V_{ee} = \sum_{i \neq i}^{N_e} \frac{e^2}{8 \pi \epsilon_0} \frac{1}{|\vec{r_i - r_j}|}.
+				\end{equation}
+		\end{compactenum}
+		By adding the total kinetic energy we obtain the searched Hamiltonian of a many body solid.
+		\begin{equation}
+			\label{eq:manyBodyHamiltionian}
+			\begin{split}
+				\hat H &= \hat T_n + \hat T_e + \hat V_{nn} + \hat V_{ne} + \hat V_{ee} \\
+				&= \sum_{I}^{N_n}\frac{h^2}{2m_I} \nabla_I^2 + \frac{h^2}{2m_e} \sum_{i}^{N_e} \nabla_i^2 + \frac{e^2}{4 \pi \epsilon_0} \left[ \sum_{I \neq J}^{N_n} \frac{1}{2} \frac{Z_I \cdot Z_J}{|\vec{R_I - R_J}|} + \sum_{I}^{N_n} \sum_{i}^{N_e}  \frac{Z_I}{|\vec{R_I - r_i}|} + \sum_{i \neq i}^{N_e} \frac{1}{2} \frac{1}{|\vec{r_i - r_j}|} \right]
+			\end{split}	
+		\end{equation}
+		 The solution of Equation (\ref{eq:manyBodyHamiltionian}) poses serious difficulty. As a result we need to introduce several approximations like the \textit{Born-Oppenheimer approximation} to get a solvable formalism. But first we want to introduce the \textit{atomic units}, that will shorten the following equations by loosing cumbersome combinations of the fundamental constants h, m, e and $\epsilon_0$.
+
+	\section{Atomic units}
+		\label{sec:atomicUnits}
+		As we are dealing with very small scales the SI units of energy (J) and length (m) are inappropriate. A more natural unit system to employ for this problem is the \textit{atomic units}.
+		In \textit{atomic units} the energy and the lenght are measured in terms of Hartree energy and the Bohr radius.
+		\begin{gather}
+			a_0 = \frac{4 \pi \epsilon_0 \hbar^2}{m_e e^2} \\
+			E_h = \frac{\hbar^2}{m_e a_0^2} = \frac{e^2}{4 \pi \epsilon_0}		
+		\end{gather}
+		In addition one can write :
+		\begin{equation}
+			\label{eq:atomicUnits}
+			e = m_e = \hbar = \frac{1}{4\pi\epsilon_0} = 1.
+		\end{equation}
+		If we apply Equation \ref{eq:atomicUnits} to our many body Hamiltonian we get 
+		\begin{equation}
+				\hat H = \sum_{I}^{N_n}\frac{1}{2} \nabla_I^2 + \frac{1}{2} \sum_{i}^{N_e} \nabla_i^2 + \sum_{I \neq J}^{N_n} \frac{1}{2} \frac{Z_I \cdot Z_J}{|\vec{R_I - R_J}|} + \sum_{I}^{N_n} \sum_{i}^{N_e}  \frac{Z_I}{|\vec{R_I - r_i}|} + \sum_{i \neq i}^{N_e} \frac{1}{2} \frac{1}{|\vec{r_i - r_j}|}.
+		\end{equation}	
+
+	\section{Born-Oppenheimer approximation}
+		\label{sec:bornOppenheimer}
+		Due to the large difference between the electron and the nuclei mass, one can assume the atomic cores have a fixed position and neglect their kinetic energy, leading to an easier to handle Hamiltonian.
+		\begin{equation}
+			\hat H = \hat T_e + \hat V_{nn} + \hat V_{en} + \hat V_{ee}		
+		\end{equation}
+		$V_{nn}$ and $V_{en}$ are taken together to a new variable called external potential $V_{ext}$.
+		\begin{equation}
+			\begin{split}
+				\hat H &= \hat T_e + \hat V_{ee} + \hat V_{ext} \\
+				\hat H &= \frac{1}{2} \sum_{i}^{N_e} \nabla_i^2 + \sum_{i \neq i}^{N_e} \frac{1}{2} \frac{1}{|\vec{r_i - r_j}|} + \sum_{I}^{N_n} \sum_{i}^{N_e}  \frac{Z_I}{|\vec{R_I - r_i}|}  			
+			\end{split}
+		\end{equation}
+				
+	\section{Electronic band theory}
+		With the use of a periodical lattice we can summarize the electron-electron correlation $V_{ee}$ and the external potential $V_{ext}$ given by the fixed lattice ions into an effective potential 
+		\begin{equation}
+			V_{eff}(\vec r) = \sum_i v(\vec r_i).
+		\end{equation}		
+		\subsection{Bloch theorem}
+			\label{sec:bloch}
+			We now want to describe electrons in a periodical potential. Instead of using plane waves for the eigenstates of the Hamiltonian (as used for a free electron gas, without a positive ion structure) we have to use lattice specific modulated plane waves.	For a Bravais lattice with a periodical potential one can rewrite the eigenstates $\psi$ of the one-electron Hamiltonian
+			\begin{align}
+				\hat H = -\frac{ \hbar^2 \nabla^2}{2m_e} + V(\vec{r}) && \text{ with } V(\vec{r + R}) = V(\vec{r})
+			\end{align}
+			as a product of a plane wave and a periodic function $u_k(\vec{r})$.
+			\begin{align}
+				\label{eq:bloch}
+				\psi(\vec{r}) = e^{i\vec{k \cdot r}} u_k(\vec{r}) && \text{ with } u_k(\vec{r + R}) = u_k(\vec{r})
+			\end{align}	
+		Evolving the wave function into orthonormal orbitals
+		\begin{equation}
+			| \phi \rangle = \sum_{\alpha} C_\alpha |\psi_\alpha \rangle 
+		\end{equation}
+		and making use of the \textit{Schrödinger equation} we obtain: 
+		\begin{equation}
+			\begin{split}
+				\label{eq:blochSchroedinger}
+				\hat H | \psi_\alpha \rangle &= \epsilon_\alpha | \psi_\alpha \rangle \\
+				( \hat T + \hat V_{eff}) | \psi_\alpha \rangle &= \epsilon_\alpha | \psi_\alpha \rangle \\
+				\langle k | (\hat T + \hat V_{eff}) | \psi_\alpha \rangle &= \epsilon_\alpha \langle k | \psi_\alpha \rangle \\
+				\langle k | (\hat T + \hat V_{eff}) | \psi_\alpha \rangle &= \epsilon_\alpha C_\alpha(k) \\
+				\langle k | \hat T | \psi_\alpha \rangle + \langle k | \hat V_{eff} | \psi_\alpha \rangle &= \epsilon_\alpha C_\alpha(k),
+			\end{split}
+		\end{equation}
+		With the help of the completeness relation we will find solutions for $\langle k | \hat T | \psi \rangle$ and $ \langle k | \hat V_{eff} | \psi \rangle $. 
+		\begin{equation}
+			\begin{split}
+				\langle k | \hat T | \psi_\alpha \rangle &= \epsilon_{kin} \langle k | \psi_\alpha \rangle \\
+				&= \frac{\hbar^2 k^2}{2 m} C_\alpha(k)
+			\end{split}
+		\end{equation}
+		\begin{equation}
+			\begin{split}
+				\langle k | \hat V_{eff} | \psi \rangle &= \int_{-\infty}^{\infty} dk' \langle k | \hat V_{eff} | k' \rangle \langle k' | \psi_\alpha \rangle \\
+				&= \int_{-\infty}^{\infty} \langle k | \hat V_{eff} | k' \rangle C_\alpha(k')
+			\end{split}
+		\end{equation}
+		Before evaluating $\langle k | \hat V_{eff} | \psi_\alpha \rangle$ we have to regard $\langle k | \hat V_{eff} | k' \rangle$.
+		\begin{equation}
+			\begin{split}
+				\label{eq:kVk'}
+				\langle k | \hat V_{eff} | k' \rangle &= \int_{-\infty}^{\infty} dx \int_{-\infty}^{\infty} dx' \langle k | x \rangle \langle x | \hat V_{eff} | x' \rangle \langle x' | k' \rangle \\
+				&= \frac{1}{2\pi} \int_{-\infty}^{\infty} dx \int_{-\infty}^{\infty} dx' V_{eff}(x')\delta(x'-x) e^{i(k'x'-kx)} \\
+				&= \frac{1}{2\pi}\int_{-\infty}^{\infty} dx V_{eff}(x) e^{ix(k'-k)}
+			\end{split}
+		\end{equation}
+		In the last line we used the spatial illustration of the impulse eigenfunctions 
+		\begin{equation}
+			\begin{split}
+				\label{eq:impulsTransformation}
+				\langle x | k \rangle = \frac{1}{\sqrt{2 \pi}} e^{ikx} \\
+				\langle k | x \rangle = \frac{1}{\sqrt{2 \pi}} e^{-ikx},
+			\end{split}
+		\end{equation}	
+		and the orthogonality of $\langle x | x' \rangle$.
+		\begin{equation}
+			\langle x | \hat V_{eff} | x' \rangle = V_{eff}(x) \langle x | x' \rangle = V_{eff}(x) \delta(x-x')
+		\end{equation}
+		To solve the integral in Eq. \ref{eq:kVk'} we furthermore need to use the Fourier transformation 
+		\begin{gather}
+			\mathcal{F}[f(t)] = \int_{-\infty}^{\infty} f(t) e^{-i\omega t} dt \\
+			f(t) = \mathcal{F}^{-1} = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathcal{F}(\omega) e^{i\omega t} d\omega,
+		\end{gather} 
+		which will lead us to :
+		\begin{equation}
+			\begin{split}
+				\langle k | \hat V | k' \rangle &= \sum_{n=-\infty}^{\infty} \int_{-\infty}^{\infty} dx V_n e^{ix(k' - k - k_n)} \\
+				&= \sum_{n=0}^{\infty} V_n \delta(k' - k - k_n).
+			\end{split}
+		\end{equation}
+		Applying the last equation to $\langle k | \hat V_{eff} | \psi_\alpha \rangle$ will give us the last missing part of the \textit{Schrödinger equation}. 
+		\begin{equation}
+			\langle k | \hat V_{eff} | \psi_\alpha \rangle = \sum_{n=-\infty}^{\infty} V_n  C_\alpha(k + k_n)
+		\end{equation}
+		Putting all together into Eq. \ref{eq:blochSchroedinger} we have
+		\begin{equation}
+			\begin{split}
+				\frac{\hbar^2 k^2}{2m} C_\alpha(k) + \sum_{n=-\infty}^{\infty}V_n C(k +k_n) &= \epsilon C_\alpha(k) \\
+				\frac{\hbar^2 k_i^2}{2m} C_\alpha(k_i) + \sum_{n=-\infty}^{\infty}V_n C_\alpha(k_{i+n}) &= \epsilon C_\alpha(k_i).
+			\end{split}
+		\end{equation}
+		This is an $\infty$-dimensional eigenvalue problem. 
+		\begin{equation}
+			\label{eq:blochEigenvalue}				
+			\begin{pmatrix}
+				\frac{\hbar^2 k_0^2}{2 m} + V_0 & V_1 & V_2 & \dots \\
+				V_{-1} & \frac{\hbar^2 k_1^2}{2 m} + V_0 & V_1 & \dots \\
+				V_{-2} & V_-1 & \frac{\hbar^2 k_2^2}{2 m} + V_0  & \dots \\
+				\vdots & \vdots & \vdots & \ddots	 	
+			\end{pmatrix}
+			\begin{pmatrix}
+				C_\alpha(k_0) \\
+				C_\alpha(k_1) \\
+				C_\alpha(k_2) \\
+				\vdots
+			\end{pmatrix}
+			= \epsilon
+			\begin{pmatrix}
+				C_\alpha(k_0) \\
+				C_\alpha(k_1) \\
+				C_\alpha(k_2) \\
+				\vdots
+			\end{pmatrix}.
+		\end{equation}
+		Additionally we have to complement the matrix with negative indices $k_{-i}$. \\
+		The eigenvalues $\epsilon_\alpha$ therefore should be denoted by two numbers : the wave number k' in the first \textit{Brillouin zone} and a natural number n, which contains the particular number of the eigenvector.
+		\begin{align}
+			\epsilon_\alpha & \text{ with } \alpha \leftrightarrow k, n
+		\end{align}	
+		Moreover the eigenvalues $\epsilon_\alpha$ create a \textit{band structure} with several properties.
+		\begin{enumerate}
+			\item The eigenvalues are \textbf{periodic functions of the quantum numbers k}. It is sufficient to describe the \textit{band structure} in the first \textit{Brillouin zone}.
+			\item $\epsilon_\alpha$ is limited and for an index n we are stuck with a restricted \textbf{bandwidth} and call the $\epsilon_{n, k}$ for an index n \textbf{energy band}.
+			\item  The forbidden areas between two bands are called \textbf{band gaps} and can be used for distinguishing metals, semiconductors and isolators.
+		\end{enumerate}
+		
+	\section{Density of states}
+		For describing the properties of a solid state, we are also interested in the amount of states per energy, the so called \textit{density of states}, which is defined by the number of states per energy interval 
+		\begin{equation}
+			D(\epsilon) = \frac{1}{V} \sum_{\alpha \sigma} \delta (\epsilon - \epsilon_\alpha) = \frac{1}{V} \sum_{k n \sigma} \delta (\epsilon - \epsilon_{k,n}), 
+		\end{equation}
+		where V is the total volume of the solid state, d is the dimension and $\sigma$ is needed for the electron spin consideration. If the k-point density is high enough we can turn the sum into an integral.
+		\begin{equation}
+			D(\epsilon) = \frac{1}{V} \sum_k \sum_{n \sigma} \delta (\epsilon - \epsilon_\alpha) \rightarrow \frac{1}{V^d} \frac{V^d}{(2\pi)^d} \sum_{n \sigma} \int d\vec k \delta (\epsilon - \epsilon_{k,n}) 
+			\label{eq:dosInt}	
+		\end{equation} 
+		To simplify the integral we can rewrite the Dirac delta into a \textit{Heaveside function}.
+		\begin{equation}
+			\delta(\epsilon - \epsilon_{kn})d\epsilon = \Theta = ( \epsilon < \epsilon_{k,n} < \epsilon +d\epsilon)
+		\end{equation}
+		As a consequence one only receives a contribution when the energy is in between the energy interval $[\epsilon, \epsilon + d\epsilon$.
+		\begin{equation}
+			D(\epsilon) d\epsilon = \frac{1}{(2\pi)^d} \sum_{n \sigma} \int d\vec k \delta (\epsilon - \epsilon_{k,n})
+		\end{equation} 
+		Using $dk^d = dS dk_\perp$, with dS being the surface of a d-dimensional spheric in the reciprocal space and $dk_\perp$ being the corresponding normal vector, simplifies the above equation.
+		\begin{equation}
+			D(\epsilon) = \frac{1}{(2\pi)^2} \sum_{n \sigma} \int_{\partial S} \frac{d S}{|\nabla \epsilon_{k n}|} \Theta(\epsilon - \epsilon_{k n}),
+		\end{equation}
+		where $d\epsilon = |\nabla_{kn}| dk_\perp$.\\
+		Having derived the needed basics we will continue with the \textit{density functional theory}.
+		
+		
+			
+		
+		
+	
+		
+	
+	
+		

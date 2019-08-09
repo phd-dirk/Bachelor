@@ -1,0 +1,280 @@
+%-----------------------------
+% B A C H E L O R A R B E I T
+%-----------------------------
+
+
+
+% DOKUMENTEINSTELLUNGEN
+% ---------------------
+
+% Dokumentenklasse
+	\documentclass[11pt,twoside]{scrbook}
+	%\usepackage{scrhack}
+% Seitengeometrie
+	\usepackage[a4paper,
+				top=2.5cm,
+				bottom=3.25cm,
+				inner=3.75cm,
+				outer=2.5cm
+			   ]{geometry}
+% Enkodierung
+	\usepackage[utf8]{inputenc} %Linux
+	%\usepackage[latin1]{inputenc} %Windows
+	\usepackage[T1]{fontenc}
+% Schriftart
+	\usepackage{lmodern}
+	\usepackage{dsfont}
+% verwendete Sprachen
+	\usepackage[english]{babel}
+
+
+
+% ZUSÄTZLICHE PAKETE LADEN
+% ------------------------
+
+% BibTeX Quellenangaben
+	\usepackage[numbers]{natbib}
+% Mathematik Pakete
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	\usepackage{fixmath}
+	%\usepackage{amsthm}
+% Grafiken/Floats einbinden
+	\usepackage{graphicx}
+	\usepackage[labelformat=empty]{subfig}
+	\usepackage{wrapfig}
+	%\usepackage{float}
+% angepasste enumerate-Umgebungen
+
+% Zeilenabstände anpassen
+	%\usepackage{setspace}
+% Seiten im Querformat
+	%\usepackage{lscape}
+% Seiten aus anderen PDFs einbinden
+	%\usepackage[final]{pdfpages}
+% Absolute Positionierung von Objekten auf Seiten
+	\usepackage[absolute]{textpos}
+% Informatik Pakete
+	\usepackage{listings}
+	\lstloadlanguages{C++}
+	\usepackage{color}
+	%\usepackage{url}
+% Schönere Seitenheader
+	\usepackage{fancyhdr}
+% Leerzeichen am Ende von Abkürzungen
+	\usepackage{xspace}
+% für \C++ benötigt
+	\usepackage{relsize}
+% Initiale
+	%\usepackage{lettrine}
+% benötigt für kontinuierliche Fußnotennummerierung
+	\usepackage{chngcntr}
+% Zeilenumbrüche in Wortzusammensetzungen, die - enhalten
+	\usepackage{hyphenat}
+% Aufzählung	
+	\usepackage{paralist}
+	
+% neuster SHIT
+	\usepackage{bbm}
+	\usepackage{booktabs}
+	\usepackage{float}
+	\usepackage{rotating}
+	\usepackage{mdframed}
+	\usepackage{morefloats}
+
+
+% pdfLaTeX ERWEITERUNGEN
+% ----------------------
+
+% Mikrotypographie Features benutzen
+	\usepackage{microtype}
+% Links aus der Inhaltsverzeichnis etc.
+	\usepackage[pdfborder={0 0 0},
+				pdftitle={Bachelorarbeit},
+				pdfsubject={Monte Carlo Methoden in der statistischen Physik und ihre Anwendung zur Simulation von Spinsystemen},
+				pdfauthor={Robert Rüger}
+			   ]{hyperref}
+% Links auf den Beginn von Floats statt auf die Beschriftung
+	\usepackage[all]{hypcap}
+
+
+
+% BENUTZERDEFINIERTES AUSSEHEN
+% ----------------------------
+
+% Verbot von Hurenkindern und Schusterjungen?
+	%\clubpenalty = 10000
+	%\widowpenalty = 10000
+	%\displaywidowpenalty = 10000
+% FancyHDR Stil
+	\pagestyle{fancy}
+	\fancyhf{}
+	\fancyfoot[EL,OR]{\small \thepage}
+	\fancyhead[EL]{\footnotesize \leftmark}
+	\fancyhead[OL]{\footnotesize \rightmark}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+% Obere Seitenbeschriftungen
+	\renewcommand{\chaptermark}[1]{\markboth{Kapitel \thechapter\hskip 12pt #1}{}}
+	\renewcommand{\sectionmark}[1]{\markright{\thesection\hskip 8pt #1}}
+% GROSSBUCHSTABEN in den Headern (fieser Hack wegen gleichzeitiger Verwendung vom babel Paket ...)
+	\let\markrightOld\markright
+	\renewcommand{\markright}[1]{\markrightOld{\MakeUppercase{#1}}}
+	\let\markbothOld\markboth
+	\renewcommand{\markboth}[1]{\markbothOld{\MakeUppercase{#1}}}
+% Seitenumbrüche in Formeln
+	%\allowdisplaybreaks[1]
+% kein Rand in fboxes
+	\setlength{\fboxsep}{0pt}
+% Zeilen und Absatzabstand
+	%\onehalfspacing
+	\linespread{1.1}
+	% einfacher Zeilenabstand in Fußnoten
+	\let\footnoteOld\footnote
+	\renewcommand{\footnote}[1]{\linespread{0.95}\footnoteOld{#1}}
+	%\setlength{\parskip}{5pt}
+% kontinuierliche Fußnotennummerierung (nicht in jedem Kapitel von vorn beginnen ...)
+	\counterwithout{footnote}{chapter}
+% DIN 1505 Literaturverzeichnis
+	\bibliographystyle{alphadin}
+	%\bibliographystyle{halpha}
+% Mehr Platz in Tabellen (beeinflusst auch Matrizen!)
+	%\setlength{\tabcolsep}{3pt}
+	%\renewcommand{\arraystretch}{1.2}
+% Fett gedruckte Nummern bei Aufzählungen
+	\renewcommand{\labelenumi}{\textbf{\theenumi.}}
+% Überall Schrift mit Serifen benutzen
+	\renewcommand{\sfdefault}{\rmdefault}
+% Quellcode
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+backgroundcolor=\color{lbcolor},
+    tabsize=4,    
+%   rulecolor=,
+    language=[GNU]C++,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=false,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        numbers=left,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.026,0.112,0.095},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+        numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+%        \lstdefinestyle{C++}{language=C++,style=numbers}’.
+}
+\lstset{
+    backgroundcolor=\color{lbcolor},
+    tabsize=4,
+  language=C++,
+  captionpos=b,
+  tabsize=3,
+  frame=lines,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=5pt,
+  breaklines=true,
+  showstringspaces=false,
+  basicstyle=\footnotesize,
+%  identifierstyle=\color{magenta},
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color{Darkgreen},
+  stringstyle=\color{red}
+  }
+		
+
+
+
+% BENUTZERDEFINIERTE BEFEHLE
+% --------------------------
+
+
+% Horizontale Linie
+	\newcommand{\HRule}{\rule{0.97\linewidth}{0.4mm}}
+
+
+% Grad Symbol
+	\newcommand{\degree}{\ensuremath{^\circ}}
+
+	
+I
+% Hilbertraumvektoren
+	\newcommand{\ket}[1]{\left| #1 \right>}
+	\newcommand{\bra}[1]{\left< #1 \right|}
+	\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \right| \left. \hskip -3pt #2 \vphantom{#1} \right>}
+	\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right| #2 \left| #3 \vphantom{#1#2} \right>}
+% Vektoren Dick Notation
+	\renewcommand{\vec}[1]{\mathbf{#1}}
+
+
+
+% BEGINN DES DOKUMENTS
+% --------------------
+	\begin{document}
+
+
+
+% Titelseite
+% ----------
+	\include{titlepage}
+
+
+% Inhaltsverzeichnis
+% ------------------
+	\setcounter{secnumdepth}{3}
+	\setcounter{tocdepth}{3}
+	\addtocontents{toc}{\protect\thispagestyle{empty}}
+	\pagestyle{empty}
+	\tableofcontents
+	\cleardoublepage
+	\pagestyle{fancy}
+	
+
+% Kapitel
+% -------
+	\include{intro}
+	\include{solidStatePhysics}
+	\include{carbonMaterials}
+	\include{densityFunctionalTheory}
+	\include{tightBinding}
+	\include{outlook}
+	\include{acknowledgement}	
+	
+
+% Literaturverzeichnis
+% --------------------
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Bibliography}
+	\bibliography{thesis}
+	
+	
+% Erklärung
+% ---------
+	\include{erklaerung}
+
+
+% Appendix
+% --------
+	\appendix
+	\chapter*{Appendix}
+	\addcontentsline{toc}{chapter}{Appendix}
+	\markboth{APPENDIX}{}
+	\stepcounter{chapter}
+	\input{appendix}
+
+
+% ENDE DES DOKUMENTS
+% ------------------
+	\end{document}

@@ -1,0 +1,51 @@
+\select@language {english}
+\thispagestyle {empty}
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
+\contentsline {chapter}{\numberline {2}Fundamental concepts in a solid state}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Crystal lattice}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Bravais lattice}{7}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Primitive Cell}{7}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Wigner-Seitz cell}{7}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Reciprocal lattice}{8}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Brillouin zone}{8}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}Many body Hamiltonian}{8}{section.2.2}
+\contentsline {section}{\numberline {2.3}Atomic units}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Born-Oppenheimer approximation}{9}{section.2.4}
+\contentsline {section}{\numberline {2.5}Electronic band theory}{10}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Bloch theorem}{10}{subsection.2.5.1}
+\contentsline {section}{\numberline {2.6}Density of states}{12}{section.2.6}
+\contentsline {chapter}{\numberline {3}Introduction to carbon materials}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Carbon Atom}{13}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}sp\textsuperscript {1}-hybridization}{14}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}sp\textsuperscript {2}-hybridization}{14}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Crystal Structure of graphite and graphene}{15}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Honeycomb lattice}{15}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Graphene stacking}{17}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}Density Functional Theory}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Hartree approximation}{19}{section.4.1}
+\contentsline {section}{\numberline {4.2}Hartree-Fock approximation}{20}{section.4.2}
+\contentsline {section}{\numberline {4.3}Hohenberg-Kohn Theorems}{21}{section.4.3}
+\contentsline {section}{\numberline {4.4}The Kohn-Sham ansatz}{22}{section.4.4}
+\contentsline {section}{\numberline {4.5}The exchange-correlation energy}{24}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Local-density approximation (LDA)}{24}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Generalized-gradient approximations (GGA)}{24}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.6}Solving the Kohn-Sham equations}{25}{section.4.6}
+\contentsline {section}{\numberline {4.7}Basis set}{26}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Plane waves (PW)}{26}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Local Orbitals (LO)}{26}{subsection.4.7.2}
+\contentsline {section}{\numberline {4.8}Full potential local orbitals (FPLO)}{29}{section.4.8}
+\contentsline {section}{\numberline {4.9}DFT calculations}{32}{section.4.9}
+\contentsline {subsection}{\numberline {4.9.1}Graphene properties}{33}{subsection.4.9.1}
+\contentsline {subsection}{\numberline {4.9.2}Boron-modified graphene}{37}{subsection.4.9.2}
+\contentsline {subsection}{\numberline {4.9.3}Nitrogen modified graphene}{37}{subsection.4.9.3}
+\contentsline {subsection}{\numberline {4.9.4}Silicon modified graphene}{38}{subsection.4.9.4}
+\contentsline {chapter}{\numberline {5}Tight binding model}{55}{chapter.5}
+\contentsline {section}{\numberline {5.1}Tight binding model}{55}{section.5.1}
+\contentsline {section}{\numberline {5.2}Nearest neighbor tight binding for graphene}{57}{section.5.2}
+\contentsline {section}{\numberline {5.3}Tight binding fit for graphene}{60}{section.5.3}
+\contentsline {chapter}{\numberline {6}Outlook}{65}{chapter.6}
+\contentsline {chapter}{\numberline {7}Acknowledgment}{67}{chapter.7}
+\contentsline {chapter}{Bibliography}{69}{section*.46}
+\contentsline {chapter}{Appendix}{71}{appendix*.48}
+\contentsline {section}{\numberline {A.1}Periodic Table Of Elements}{71}{section.A.1}
+\contentsline {section}{\numberline {A.2}Tight binding code}{71}{section.A.2}

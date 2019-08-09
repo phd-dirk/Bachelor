@@ -1,0 +1,49 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Fundamental concepts in a solid state}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Crystal lattice}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{Bravais lattice}{section.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.1.2}{Primitive Cell}{section.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.1.3}{Wigner-Seitz cell}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.4}{Reciprocal lattice}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.5}{Brillouin zone}{section.2.1}% 8
+\BOOKMARK [1][-]{section.2.2}{Many body Hamiltonian}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.3}{Atomic units}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.4}{Born-Oppenheimer approximation}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.5}{Electronic band theory}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.5.1}{Bloch theorem}{section.2.5}% 13
+\BOOKMARK [1][-]{section.2.6}{Density of states}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Introduction to carbon materials}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Carbon Atom}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.1.1}{sp1-hybridization}{section.3.1}% 17
+\BOOKMARK [2][-]{subsection.3.1.2}{sp2-hybridization}{section.3.1}% 18
+\BOOKMARK [1][-]{section.3.2}{Crystal Structure of graphite and graphene}{chapter.3}% 19
+\BOOKMARK [2][-]{subsection.3.2.1}{Honeycomb lattice}{section.3.2}% 20
+\BOOKMARK [2][-]{subsection.3.2.2}{Graphene stacking}{section.3.2}% 21
+\BOOKMARK [0][-]{chapter.4}{Density Functional Theory}{}% 22
+\BOOKMARK [1][-]{section.4.1}{Hartree approximation}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.2}{Hartree-Fock approximation}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.3}{Hohenberg-Kohn Theorems}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.4}{The Kohn-Sham ansatz}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.5}{The exchange-correlation energy}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.5.1}{Local-density approximation \(LDA\)}{section.4.5}% 28
+\BOOKMARK [2][-]{subsection.4.5.2}{Generalized-gradient approximations \(GGA\)}{section.4.5}% 29
+\BOOKMARK [1][-]{section.4.6}{Solving the Kohn-Sham equations}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.7}{Basis set}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.7.1}{Plane waves \(PW\)}{section.4.7}% 32
+\BOOKMARK [2][-]{subsection.4.7.2}{Local Orbitals \(LO\)}{section.4.7}% 33
+\BOOKMARK [1][-]{section.4.8}{Full potential local orbitals \(FPLO\)}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.9}{DFT calculations}{chapter.4}% 35
+\BOOKMARK [2][-]{subsection.4.9.1}{Graphene properties}{section.4.9}% 36
+\BOOKMARK [2][-]{subsection.4.9.2}{Boron-modified graphene}{section.4.9}% 37
+\BOOKMARK [2][-]{subsection.4.9.3}{Nitrogen modified graphene}{section.4.9}% 38
+\BOOKMARK [2][-]{subsection.4.9.4}{Silicon modified graphene}{section.4.9}% 39
+\BOOKMARK [0][-]{chapter.5}{Tight binding model}{}% 40
+\BOOKMARK [1][-]{section.5.1}{Tight binding model}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.2}{Nearest neighbor tight binding for graphene}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.3}{Tight binding fit for graphene}{chapter.5}% 43
+\BOOKMARK [0][-]{chapter.6}{Outlook}{}% 44
+\BOOKMARK [0][-]{chapter.7}{Acknowledgment}{}% 45
+\BOOKMARK [0][-]{section*.46}{Bibliography}{}% 46
+\BOOKMARK [0][-]{appendix*.48}{Appendix}{}% 47
+\BOOKMARK [1][-]{section.A.1}{Periodic Table Of Elements}{appendix*.48}% 48
+\BOOKMARK [1][-]{section.A.2}{Tight binding code}{appendix*.48}% 49
